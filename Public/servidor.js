@@ -16,20 +16,18 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json()); // Necesario si esperas enviar JSON (aunque el formulario usa urlencoded)
 
-// ** NUEVA LÍNEA CLAVE: Configura Express para servir archivos estáticos **
-// Esto le dice a Express que cualquier archivo dentro de la carpeta 'public'
-// puede ser accedido directamente por su nombre en la URL.
-// Por ejemplo, si tienes 'public/logo.png', se accederá como '/logo.png'.
-app.use(express.static(path.join(__dirname, 'public')));
+// ** LÍNEA CLAVE CORREGIDA: Configura Express para servir archivos estáticos **
+// Si 'servidor.js' está dentro de la carpeta 'Public', entonces '__dirname' ya apunta a 'Public'.
+// Por lo tanto, simplemente sirve los archivos desde ese directorio.
+app.use(express.static(path.join(__dirname)));
 
 // Ruta para servir el archivo HTML principal (Correo.html)
 // Cuando alguien visite la URL base de tu aplicación (ej. https://tu-app.onrender.com/),
 // se le enviará el archivo Correo.html.
 app.get('/', (req, res) => {
-    // Si mueves Correo.html a la carpeta 'public', usa esta línea:
-    res.sendFile(path.join(__dirname, 'public', 'Correo.html'));
-    // Si Correo.html se queda en la misma carpeta que servidor.js, usa esta línea:
-    // res.sendFile(path.join(__dirname, 'Correo.html'));
+    // Si 'Correo.html' está en la misma carpeta que 'servidor.js' (ambos dentro de 'Public'),
+    // esta es la ruta correcta.
+    res.sendFile(path.join(__dirname, 'Correo.html'));
 });
 
 // Define la ruta POST a la que tu formulario HTML enviará los datos
@@ -62,9 +60,7 @@ app.post('/enviar-correo', async (req, res) => {
     // Intenta enviar el correo
     try {
         await transporter.sendMail(mailOptions);
-        // Si el correo se envía con éxito, envía una respuesta al navegador
-        //res.send('Enviado');
-        // Redirige a una URL de YouTube (asegúrate de que esta URL es la deseada)
+        // Si el correo se envía con éxito, redirige a la URL de YouTube
         res.redirect('https://youtu.be/2dtNT_zQqV4?si=9_FwEnc-Rifv2YtZ');
     } catch (error) {
         // Si hay un error al enviar el correo, muéstralo en la consola del servidor
